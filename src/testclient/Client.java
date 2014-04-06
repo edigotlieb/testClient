@@ -33,6 +33,12 @@ public class Client {
     
     public final static String ADD_PERMISSIONGROUP_FORMAT = "{ \"username\":\"%s\",\"new_password\":\"%s\" }";           
     
+    public final static String CREATE_APP_FORMAT = "{ \"appname\":\"%s\"}";           
+    
+    public final static String DROP_TABEL_FORMAT = "{ \"tableName\":\"%s\"}";           
+    
+    
+    
     
     public final static HashMap<USER_ACTION_TYPE, String> userAction;
     public final static HashMap<APP_ACTION_TYPE, String> appAction;
@@ -51,6 +57,9 @@ public class Client {
         userAction.put(USER_ACTION_TYPE.REMOVE_PERMISSION,ADD_PERMISSIONGROUP_FORMAT);
         userAction.put(USER_ACTION_TYPE.GET_GROUPS,SIGN_IN_FORMAT);
         
+        appAction.put(APP_ACTION_TYPE.CREATE_APP, CREATE_APP_FORMAT);
+        appAction.put(APP_ACTION_TYPE.DROP_TABLE, DROP_TABEL_FORMAT);
+        appAction.put(APP_ACTION_TYPE.GET_TABLES, SIGN_IN_FORMAT);
     }
 
     private static final int INITIAL_TIME_OUT = 1000;
