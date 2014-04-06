@@ -41,6 +41,7 @@ public class Client {
 
         userAction.put(USER_ACTION_TYPE.SIGN_UP, SIGN_UP_FORMAT);
         userAction.put(USER_ACTION_TYPE.SIGN_IN, SIGN_IN_FORMAT);
+        userAction.put(USER_ACTION_TYPE.UPDATE_INFO,UPDATE_INFO_FORMAT);
     }
 
     private static final int INITIAL_TIME_OUT = 1000;
