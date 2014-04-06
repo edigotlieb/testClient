@@ -24,8 +24,11 @@ public class Client {
 
     public final static String SIGN_UP_FORMAT = "{ \"username\":\"%s\",\"password\":\"%s\",\"name\":\"%s\","
             + "\"display_name\":\"%s\",\"email\":\"%s\",\"year\":\"%s\",\"room\":\"%s\" }";
-
     public final static String SIGN_IN_FORMAT = "{}";
+    
+    public final static String UPDATE_INFO_FORMAT = "{ \"username\":\"%s\",\"new_name\":\"%s\","
+            + "\"new_display_name\":\"%s\",\"new_email\":\"%s\",\"new_year\":\"%s\",\"new_room\":\"%s\" }";
+    
     
     public final static HashMap<USER_ACTION_TYPE, String> userAction;
     public final static HashMap<APP_ACTION_TYPE, String> appAction;
@@ -142,13 +145,14 @@ public class Client {
             //System.exit(0);
             Thread.sleep(SLEEP_LENGTH);
             i++;
-           /* if (i > SECONDARY_TIME_OUT / SLEEP_LENGTH) {
+            if (i > SECONDARY_TIME_OUT / SLEEP_LENGTH) {
                 return "timeout";
-            }*/
+            }
         }
 
         String result = this.reader.readLine();
         this.socket.close();
+        System.out.println("RESPONSE TIME:" + i*SLEEP_LENGTH+" MS");
         return result;
     }
 
