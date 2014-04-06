@@ -31,6 +31,7 @@ public class Client {
     
     public final static String UPDATE_PASSWORD_FORMAT = "{ \"username\":\"%s\",\"new_password\":\"%s\" }";           
     
+    public final static String ADD_PERMISSIONGROUP_FORMAT = "{ \"username\":\"%s\",\"new_password\":\"%s\" }";           
     
     
     public final static HashMap<USER_ACTION_TYPE, String> userAction;
@@ -46,6 +47,7 @@ public class Client {
         userAction.put(USER_ACTION_TYPE.SIGN_IN, SIGN_IN_FORMAT);
         userAction.put(USER_ACTION_TYPE.UPDATE_INFO,UPDATE_INFO_FORMAT);
         userAction.put(USER_ACTION_TYPE.UPDATE_PASSWORD, UPDATE_PASSWORD_FORMAT);
+        userAction.put(USER_ACTION_TYPE.ADD_PERMISSION,ADD_PERMISSIONGROUP_FORMAT);
     }
 
     private static final int INITIAL_TIME_OUT = 1000;
