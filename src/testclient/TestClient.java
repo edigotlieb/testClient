@@ -24,9 +24,9 @@ public class TestClient {
                 
         String appName = "MasterApplication";
         
-        Client c = new Client("10.0.0.10", 4850, appName, "appkey", "edi.gotlieb", "Pedig1506");
+        Client c = new Client("ld34.hopto.org", 4850, appName, "appkey", "Anonymous", "");
         
-        String[] data = {"USERNAME","=","edi.gotlieb"};
+        String[] data = {"USERNAME","=","'edi.gotlieb'"};
         
         
         
