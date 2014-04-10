@@ -24,9 +24,13 @@ public class TestClient {
                 
         String appName = "MasterApplication";
         
-        Client c = new Client("10.0.0.10", 4850, appName, "appkey", "edi.gotlieb", "password");
+        Client c = new Client("10.0.0.10", 4850, appName, "appkey", "edi.gotlieb", "Pedig1506");
         
-        System.out.println(c.sendRequest(TYPE.USER, USER_ACTION_TYPE.SIGN_IN, null));
+        String[] data = {"USERNAME","=","edi.gotlieb"};
+        
+        
+        
+        System.out.println(c.sendRequest(TYPE.USER, USER_ACTION_TYPE.SELECT, data));
         
         
     }

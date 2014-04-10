@@ -23,19 +23,21 @@ public class Client {
             + "\"RequestData\": %s }";
 
     public final static String SIGN_UP_FORMAT = "{ \"username\":\"%s\",\"password\":\"%s\",\"name\":\"%s\","
-            + "\"display_name\":\"%s\",\"email\":\"%s\",\"year\":\"%s\",\"room\":\"%s\" }";
+            + "\"displayName\":\"%s\",\"email\":\"%s\",\"year\":\"%s\",\"room\":\"%s\" }";
     public final static String SIGN_IN_FORMAT = "{}";
     
-    public final static String UPDATE_INFO_FORMAT = "{ \"username\":\"%s\",\"new_name\":\"%s\","
-            + "\"new_display_name\":\"%s\",\"new_email\":\"%s\",\"new_year\":\"%s\",\"new_room\":\"%s\" }";
+    public final static String UPDATE_INFO_FORMAT = "{ \"username\":\"%s\",\"newName\":\"%s\","
+            + "\"newDisplayName\":\"%s\",\"newEmail\":\"%s\",\"newYear\":\"%s\",\"newRoom\":\"%s\" }";
     
-    public final static String UPDATE_PASSWORD_FORMAT = "{ \"username\":\"%s\",\"new_password\":\"%s\" }";           
+    public final static String UPDATE_PASSWORD_FORMAT = "{ \"username\":\"%s\",\"newPassword\":\"%s\" }";           
     
-    public final static String ADD_PERMISSIONGROUP_FORMAT = "{ \"username\":\"%s\",\"new_password\":\"%s\" }";           
+    public final static String ADD_PERMISSIONGROUP_FORMAT = "{ \"username\":\"%s\",\"newPassword\":\"%s\" }";           
     
     public final static String CREATE_APP_FORMAT = "{ \"appname\":\"%s\"}";           
     
     public final static String DROP_TABEL_FORMAT = "{ \"tableName\":\"%s\"}";           
+        
+    public final static String WHERE_FORMAT = "{ \"WHERE\":{\"Term\":{\"Field\":\"%s\",\"Op\":\"%s\",\"Value\":\"%s\"}}}";           
     
     
     
@@ -60,6 +62,9 @@ public class Client {
         appAction.put(APP_ACTION_TYPE.CREATE_APP, CREATE_APP_FORMAT);
         appAction.put(APP_ACTION_TYPE.DROP_TABLE, DROP_TABEL_FORMAT);
         appAction.put(APP_ACTION_TYPE.GET_TABLES, SIGN_IN_FORMAT);
+        
+        userAction.put(USER_ACTION_TYPE.SELECT, WHERE_FORMAT);
+        
     }
 
     private static final int INITIAL_TIME_OUT = 1000;
