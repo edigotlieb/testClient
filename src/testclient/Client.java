@@ -29,6 +29,8 @@ public class Client {
     public final static String UPDATE_INFO_FORMAT = "{ \"username\":\"%s\",\"newName\":\"%s\","
             + "\"newDisplayName\":\"%s\",\"newEmail\":\"%s\",\"newYear\":\"%s\",\"newRoom\":\"%s\" }";
     
+    public final static String USERS_WITH_GROUP_FORMAT = "{\"groupName\":\"%s\"}";           
+    
     public final static String UPDATE_PASSWORD_FORMAT = "{ \"username\":\"%s\",\"newPassword\":\"%s\" }";           
     
     public final static String ADD_PERMISSIONGROUP_FORMAT = "{ \"username\":\"%s\",\"newPassword\":\"%s\" }";           
@@ -64,7 +66,7 @@ public class Client {
         appAction.put(APP_ACTION_TYPE.GET_TABLES, SIGN_IN_FORMAT);
         
         userAction.put(USER_ACTION_TYPE.SELECT, WHERE_FORMAT);
-        
+        userAction.put(USER_ACTION_TYPE.GET_USERS_WITH_GROUPS,USERS_WITH_GROUP_FORMAT);
     }
 
     private static final int INITIAL_TIME_OUT = 500;
@@ -100,7 +102,7 @@ public class Client {
 
     public enum USER_ACTION_TYPE {
 
-        SIGN_UP, SIGN_IN, UPDATE_INFO, ADD_PERMISSION, SELECT, UPDATE_PASSWORD, REMOVE_PERMISSION, GET_GROUPS
+        SIGN_UP, SIGN_IN, UPDATE_INFO, ADD_PERMISSION, SELECT, UPDATE_PASSWORD, REMOVE_PERMISSION, GET_GROUPS,GET_USERS_WITH_GROUPS
     }
 
     public Client(String dest, int port, String appName, String appKey, String username, String password) throws IOException {
@@ -166,7 +168,7 @@ public class Client {
         
         String requset = String.format(REQUEST_FORMAT, appName, hashedAppKey, username, hashedPassword, type, action.toString(), dataFormat);
         
-        // System.out.println(requset);
+        System.out.println(requset);
         
         this.out.println(requset);
         this.out.flush();
