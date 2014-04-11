@@ -24,13 +24,13 @@ public class TestClient {
                 
         String appName = "MasterApplication";
         
-        Client c = new Client("ld34.hopto.org", 4850, appName, "appkey", "Anonymous", "");
+        Client c = new Client("ld34.hopto.org", 4850, appName, "appkey", "edi.gotlieb", "Pedig1506");
         
-        String[] data = {"USERNAME","=","'edi.gotlieb'"};
+        String[] data = {"ROOM_NUM",">","'205'"};
         
         
         
-        System.out.println(c.sendRequest(TYPE.USER, USER_ACTION_TYPE.SELECT, data));
+        System.out.println(c.sendRequest(TYPE.USER, USER_ACTION_TYPE.GET_GROUPS, null));
         
         
     }

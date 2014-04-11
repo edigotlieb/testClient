@@ -67,8 +67,8 @@ public class Client {
         
     }
 
-    private static final int INITIAL_TIME_OUT = 1000;
-    private static final int SECONDARY_TIME_OUT = 3000;
+    private static final int INITIAL_TIME_OUT = 500;
+    private static final int SECONDARY_TIME_OUT = 2500;
     private static final int SLEEP_LENGTH = 10;
 
     private Socket socket;
@@ -116,10 +116,16 @@ public class Client {
         this.socket = new Socket(this.dest, this.port);
         reader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
         out = new PrintWriter(this.socket.getOutputStream());
-        Thread.sleep(timeout);
-        if (!reader.ready()) {
-            return null;
+        //Thread.sleep(timeout);
+        int i = 0;
+        while (!reader.ready()) {
+            Thread.sleep(SLEEP_LENGTH);
+            i++;
+            if (i > timeout / SLEEP_LENGTH) {
+                return null;
+            }
         }
+        System.out.println("TIME FOR CHALLENGE: "+(i*SLEEP_LENGTH)+" MILLIS");
         String chal = reader.readLine();
         this.hashedAppKey = Utilities.Hashing.MD5Hash(Utilities.Hashing.MD5Hash(this.appKey) + chal);
         this.hashedPassword = Utilities.Hashing.MD5Hash(Utilities.Hashing.MD5Hash(this.password) + chal);
@@ -158,8 +164,10 @@ public class Client {
             return "timeout";
         }
         
-        String requset = String.format(REQUEST_FORMAT, appName, hashedAppKey, username, hashedPassword, TYPE.USER, action.toString(), dataFormat);
-
+        String requset = String.format(REQUEST_FORMAT, appName, hashedAppKey, username, hashedPassword, type, action.toString(), dataFormat);
+        
+        // System.out.println(requset);
+        
         this.out.println(requset);
         this.out.flush();
 
