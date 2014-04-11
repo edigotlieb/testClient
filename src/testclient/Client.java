@@ -41,6 +41,7 @@ public class Client {
         
     public final static String WHERE_FORMAT = "{ \"WHERE\":{\"Term\":{\"Field\":\"%s\",\"Op\":\"%s\",\"Value\":\"%s\"}}}";           
     
+   
     
     
     
@@ -64,6 +65,8 @@ public class Client {
         appAction.put(APP_ACTION_TYPE.CREATE_APP, CREATE_APP_FORMAT);
         appAction.put(APP_ACTION_TYPE.DROP_TABLE, DROP_TABEL_FORMAT);
         appAction.put(APP_ACTION_TYPE.GET_TABLES, SIGN_IN_FORMAT);
+        appAction.put(APP_ACTION_TYPE.DELETE_APP, CREATE_APP_FORMAT);
+        
         
         userAction.put(USER_ACTION_TYPE.SELECT, WHERE_FORMAT);
         userAction.put(USER_ACTION_TYPE.GET_USERS_WITH_GROUPS,USERS_WITH_GROUP_FORMAT);
