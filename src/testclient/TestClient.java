@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package testclient;
 
 /**
@@ -12,27 +11,25 @@ package testclient;
  */
 import java.io.IOException;
 import testclient.Client.TYPE;
-import testclient.Client.USER_ACTION_TYPE;
+
 public class TestClient {
 
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws IOException, InterruptedException {
-                
-                
-        String appName = "MasterApplication";
-        
-        Client c = new Client("ld34.hopto.org", 4850, appName, "appkey", "olifshitz", "12345678");
-        
-        String[] data = {"Developer"};
-        
-        
-        
-        System.out.println(c.sendRequest(TYPE.USER, USER_ACTION_TYPE.GET_USERS_WITH_GROUPS, data));
-        
-        
-    }
-    
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(String[] args) throws IOException, InterruptedException {
+
+
+		String appName = "MasterApplication";
+		//Pedig1506
+		Client c = new Client("85.250.72.192", 4850, "testApp", "", "edi.gotlieb", "Pedig1506");
+
+		String[] data = {"shagmach", "iddobron"};
+
+
+
+		System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.SET_PERMISSIONGROUP_ADMIN, data));
+
+
+	}
 }
