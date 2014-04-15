@@ -19,21 +19,25 @@ public class TestClient {
 	 */
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		Client c = new Client("ld34.hopto.org", 4850, "talnet", "betzim", "idanb55", "עברית");
+		Client c = new Client("ld34.hopto.org", 4850, "testApp", "testKey", "idanb55", "עברית");
 
 		//String[] data = { "idanb55","עברית" };
 		//System.out.println(c.sendRequest(TYPE.USER, Client.USER_ACTION_TYPE.UPDATE_PASSWORD, data));
 		
-		//String[] data = {"talnet", "edinotcookie", "col1", "INT", "20", "true", "false", "col2", "VARCHAR", "11", "true", "false"};
-		//System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.ADD_TABLE, data));	
-		
-		String[] data = {};
-		System.out.println(c.sendRequest(TYPE.USER, Client.USER_ACTION_TYPE.SIGN_IN, data));
+//		String[] data = {"testApp", "berkotable",
+//			"col_int", "INT", "11", "true", "true",
+//			"col_varchar", "VARCHAR", "50", "true", "false",
+//			"col_date", "DATE", "0", "false", "false",
+//			"col2_timestamp", "TIMESTAMP", "11", "false", "false"};
+//		System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.ADD_TABLE, data));	
+//		
+		//String[] data = {"testApp","edicookie"};
+		//System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.DROP_TABLE, data));
 
-		//String[] data = { "testApp" };
-		//System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.DELETE_APP, data));
+		//String[] data = { "testApp", "a2e4822a98337283e39f7b60acf85ec9" };
+		//System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.CREATE_APP, data));
 
-		//String[] data = { "tuser", "11", "haha","hahahah dsdf", "id@f.d","34","245"};
-		//System.out.println(c.sendRequest(TYPE.USER, Client.USER_ACTION_TYPE.SIGN_UP, data));
+		String[] data = { "berkotable", "col_int", "DESC"};
+		System.out.println(c.sendRequest(TYPE.DTD, Client.DTD_ACTION_TYPE.SELECT, data));
 	}
 }
