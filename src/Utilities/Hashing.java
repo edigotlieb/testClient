@@ -28,7 +28,7 @@ public class Hashing {
 	public static String MD5Hash(String myStr) {
 		byte[] bytesOfMessage;
 		try {
-			bytesOfMessage = myStr.getBytes("ascii");
+			bytesOfMessage = myStr.getBytes("UTF-8");
 		} catch (UnsupportedEncodingException ex) {
 			return myStr;
 		}
