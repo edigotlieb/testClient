@@ -36,6 +36,16 @@ public class Client {
 	public final static String REMOVE_PERMISSION_GROUP_FORMAT = "{ \"permissionGroupName\":\"%s\" }";
 	public final static String SET_PERMISSIONGROUP_ADMIN_FORMAT = "{ \"permissionGroupName\":\"%s\",\"username\":\"%s\" }";
 	public final static String WHERE_FORMAT = "{ \"WHERE\":{\"Term\":{\"Field\":\"%s\",\"Op\":\"%s\",\"Value\":\"%s\"}}}";
+	
+	public final static String ADD_TABLE_FORMAT = "{ \"appName\":\"%s\", \"tableName\":\"%s\", \"cols\": [{\"colName\":\"%s\",\"colType\":\"%s\",\"size\":\"%s\",\"isPrimary\":\"%s\",\"autoInc\":\"%s\"},{\"colName\":\"%s\",\"colType\":\"%s\",\"size\":\"%s\",\"isPrimary\":\"%s\",\"autoInc\":\"%s\"}]}";
+	//public final static String ADD_TABLE_FORMAT = "{ \"appName\":\"%s\", \"tableName\":\"%s\", \"cols\": [{\"colName\":\"%s\",\"colType\":\"%s\",\"isPrimary\":\"%s\",\"autoInc\":\"%s\"}]}";
+	public final static String DROP_TABLE_FORMAT = "{ \"appName\":\"%s\", \"tableName\":\"%s\" }";
+	public final static String ADD_PERMISSION_GROUP_FOR_TABLE_FORMAT = "{ \"appName\":\"%s\", \"permissionGroupName\":\"%s\", \"to\":\"%s\", \"type\":\"%s\" }";
+	public final static String REMOVE_PERMISSION_GROUP_FOR_TABLE_FORMAT = "{ \"appName\":\"%s\", \"permissionGroupName\":\"%s\", \"from\":\"%s\", \"type\":\"%s\" }";
+	public final static String GET_TABLE_INFO_FORMAT = "{ \"appName\":\"%s\", \"tableName\":\"%s\" }";
+	public final static String GET_TABLES_FORMAT = "{ \"appName\":\"%s\" }";
+	public final static String GET_ALL_APPS_FORMAT = "{ }";
+	
 	public final static HashMap<USER_ACTION_TYPE, String> userAction;
 	public final static HashMap<APP_ACTION_TYPE, String> appAction;
 	public final static HashMap<DTD_ACTION_TYPE, String> DTDAction;
@@ -60,6 +70,14 @@ public class Client {
 		appAction.put(APP_ACTION_TYPE.GET_TABLES, SIGN_IN_FORMAT);
 		appAction.put(APP_ACTION_TYPE.DELETE_APP, DELETE_APP_FORMAT);
 		appAction.put(APP_ACTION_TYPE.SET_PERMISSIONGROUP_ADMIN, SET_PERMISSIONGROUP_ADMIN_FORMAT);
+		
+		appAction.put(APP_ACTION_TYPE.ADD_TABLE, ADD_TABLE_FORMAT);
+		appAction.put(APP_ACTION_TYPE.DROP_TABLE, DROP_TABLE_FORMAT);
+		appAction.put(APP_ACTION_TYPE.ADD_PERMISSION_GROUP_FOR_TABLE, ADD_PERMISSION_GROUP_FOR_TABLE_FORMAT);
+		appAction.put(APP_ACTION_TYPE.REMOVE_PERMISSION_GROUP_FOR_TABLE, REMOVE_PERMISSION_GROUP_FOR_TABLE_FORMAT);
+		appAction.put(APP_ACTION_TYPE.GET_TABLE_INFO, GET_TABLE_INFO_FORMAT);
+		appAction.put(APP_ACTION_TYPE.GET_TABLES, GET_TABLES_FORMAT);
+		appAction.put(APP_ACTION_TYPE.GET_ALL_APPS, GET_ALL_APPS_FORMAT);
 
 
 		userAction.put(USER_ACTION_TYPE.SELECT, WHERE_FORMAT);
@@ -84,7 +102,7 @@ public class Client {
 	public enum APP_ACTION_TYPE {
 
 		ADD_TABLE, DROP_TABLE, DELETE_APP, ADD_PERMISSIONGROUP, REMOVE_PERMISSIONGROUP,
-		CREATE_APP, GET_TABLE_INFO, GET_TABLES, SET_PERMISSIONGROUP_ADMIN, ADD_PERMISSION_GROUP_FOR_TABLE, REMOVE_PERMISSION_GROUP_FOR_TABLE, ADD_PERMISSION_GROUP;
+		CREATE_APP, GET_TABLE_INFO, GET_TABLES, SET_PERMISSIONGROUP_ADMIN, ADD_PERMISSION_GROUP_FOR_TABLE, REMOVE_PERMISSION_GROUP_FOR_TABLE, ADD_PERMISSION_GROUP, GET_ALL_APPS;
 	}
 
 	public enum DTD_ACTION_TYPE {
