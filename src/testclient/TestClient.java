@@ -31,13 +31,13 @@ public class TestClient {
 //			"col2_timestamp", "TIMESTAMP", "11", "false", "false"};
 //		System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.ADD_TABLE, data));	
 //		
-		//String[] data = {"testApp","edicookie"};
+		//String[] data = {"testApp","berkotable"};
 		//System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.DROP_TABLE, data));
 
-		//String[] data = { "testApp", "a2e4822a98337283e39f7b60acf85ec9" };
-		//System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.CREATE_APP, data));
+		String[] data = { "testApp" };
+		System.out.println(c.sendRequest(TYPE.APP, Client.APP_ACTION_TYPE.DELETE_APP, data));
 
-		String[] data = { "berkotable", "col_int", "DESC"};
-		System.out.println(c.sendRequest(TYPE.DTD, Client.DTD_ACTION_TYPE.SELECT, data));
+		//String[] data = { "berkotable", "col_int", "DESC"};
+		//System.out.println(c.sendRequest(TYPE.DTD, Client.DTD_ACTION_TYPE.SELECT, data));
 	}
 }
