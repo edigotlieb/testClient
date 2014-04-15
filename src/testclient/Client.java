@@ -36,6 +36,7 @@ public class Client {
 	public final static String REMOVE_PERMISSION_GROUP_FORMAT = "{ \"permissionGroupName\":\"%s\" }";
 	public final static String SET_PERMISSIONGROUP_ADMIN_FORMAT = "{ \"permissionGroupName\":\"%s\",\"username\":\"%s\" }";
 	public final static String WHERE_FORMAT = "{ \"WHERE\":{\"Term\":{\"Field\":\"%s\",\"Op\":\"%s\",\"Value\":\"%s\"}}}";
+	public final static String DELETE_USER_FORMAT = "{ \"userToDelete\":\"%s\" }";
 	
 	public final static String ADD_TABLE_FORMAT = "{ \"appName\":\"%s\", \"tableName\":\"%s\", \"cols\": [{\"colName\":\"%s\",\"colType\":\"%s\",\"size\":\"%s\",\"isPrimary\":\"%s\",\"autoInc\":\"%s\"},{\"colName\":\"%s\",\"colType\":\"%s\",\"size\":\"%s\",\"isPrimary\":\"%s\",\"autoInc\":\"%s\"}]}";
 	//public final static String ADD_TABLE_FORMAT = "{ \"appName\":\"%s\", \"tableName\":\"%s\", \"cols\": [{\"colName\":\"%s\",\"colType\":\"%s\",\"isPrimary\":\"%s\",\"autoInc\":\"%s\"}]}";
@@ -62,6 +63,7 @@ public class Client {
 		userAction.put(USER_ACTION_TYPE.ADD_PERMISSION, ADD_PERMISSIONGROUP_FORMAT);
 		userAction.put(USER_ACTION_TYPE.REMOVE_PERMISSION, ADD_PERMISSIONGROUP_FORMAT);
 		userAction.put(USER_ACTION_TYPE.GET_GROUPS, SIGN_IN_FORMAT);
+		userAction.put(USER_ACTION_TYPE.DELETE_USER, DELETE_USER_FORMAT);
 
 		appAction.put(APP_ACTION_TYPE.CREATE_APP, CREATE_APP_FORMAT);
 		appAction.put(APP_ACTION_TYPE.DROP_TABLE, DROP_TABEL_FORMAT);
@@ -112,7 +114,7 @@ public class Client {
 
 	public enum USER_ACTION_TYPE {
 
-		SIGN_UP, SIGN_IN, UPDATE_INFO, ADD_PERMISSION, SELECT, UPDATE_PASSWORD, REMOVE_PERMISSION, GET_GROUPS, GET_USERS_WITH_GROUPS
+		SIGN_UP, SIGN_IN, UPDATE_INFO, ADD_PERMISSION, SELECT, UPDATE_PASSWORD, REMOVE_PERMISSION, GET_GROUPS, GET_USERS_WITH_GROUPS, DELETE_USER
 	}
 
 	public Client(String dest, int port, String appName, String appKey, String username, String password) throws IOException {
