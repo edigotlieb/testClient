@@ -19,7 +19,7 @@ public class TestClient {
 	 */
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		Client c = new Client("ld34.hopto.org", 4850, "talnet", "betzim", "idanb55", "עברית");
+		Client c = new Client("ld34.hopto.org", 4850, "talnet", "betzim", "idanb55", "12345678");
 
 		String[] data = { "idanb55","עברית" };
 		System.out.println(c.sendRequest(TYPE.USER, Client.USER_ACTION_TYPE.UPDATE_PASSWORD, data));
